@@ -1,0 +1,77 @@
+Domain Entity StudentCourseTranscript
+    documentation "This entity is record of a student's performance in a course, or in one part of a multi-part course, at the end of a term or school year.it is the proposed transcript model for historical and current-year records alike, and runs parallel to CourseTranscript until implementations migrate"
+    domain entity EdFi.StudentAcademicRecord
+        documentation "The student academic record for the school, school year and term in which the course was taken."
+        is part of identity
+    string CourseTranscriptIdentifier
+        documentation "A surrogate identifier for the course transcript record, generated and maintained by the source SIS. It must remain stable across submissions."
+        is part of identity
+        max length 64
+    descriptor EdFi.CourseAttemptResult
+        documentation "The result from the student's attempt to take the course (e.g., Pass, Fail, Incomplete, Withdrawn)."
+        is required
+    domain entity EdFi.Course
+        documentation "The course the student took."
+        is required
+    descriptor CourseSequence
+        documentation "Which part of a multi-part course this record represents."
+        is required
+    domain entity EdFi.Section
+        documentation "The section in which the student took the course."
+        is optional
+        merge Section.CourseOffering.Session.SchoolYear with StudentAcademicRecord.SchoolYear
+    inline common EdFi.Credits
+        documentation "The number of credits the student earned in the course."
+        is required
+        role name Earned
+    inline common EdFi.Credits
+        documentation "The number of credits the student attempted in the course."
+        is optional
+        role name Attempted
+    common EdFi.AdditionalCredits
+        documentation "Additional credit types and amounts earned."
+        is optional collection
+        role name Earned
+    descriptor EdFi.GradeLevel
+        documentation "The student's grade level at the time the course was taken."
+        is optional
+        role name WhenTaken
+    descriptor EdFi.MethodCreditEarned
+        documentation "The method by which the credits were earned (e.g., classroom, examination, transfer)."
+        is optional
+    shared string EdFi.GradeEarned named FinalLetterGradeEarned
+        documentation "The final letter grade earned by the student in the course."
+        is optional
+    shared decimal EdFi.NumericGrade named FinalNumericGradeEarned
+        documentation "The final numeric grade earned by the student in the course."
+        is optional
+    descriptor EdFi.CourseRepeatCode
+        documentation "Indicates that the course has been repeated and how the repeat is computed in the student's grade average."
+        is optional
+    shared string EdFi.CourseTitle
+        documentation "The descriptive name given to the course."
+        is optional
+    shared string EdFi.CourseTitle named AlternativeCourseTitle
+        documentation "The descriptive name given to the course, if different from the CourseTitle."
+        is optional
+    common EdFi.CourseIdentificationCode
+        documentation "An alternate code that identifies the course."
+        is optional collection
+        role name Alternative
+    domain entity EdFi.EducationOrganization
+        documentation "The external education organization where the student took the course."
+        is optional
+        role name External
+    shared string EdFi.NameOfInstitution
+        documentation "Name of the external institution where the student took the course; used only when the external education organization reference is not available."
+        is optional
+        role name ExternalEducationOrganization
+    descriptor EdFi.AcademicSubject
+        documentation "The academic subjects associated with the record."
+        is optional collection
+    descriptor EdFi.CreditCategory
+        documentation "Categorizations of the credits awarded, used to sum credits toward graduation plans or other benchmarks."
+        is optional collection
+    common EdFi.PartialCourseTranscriptAwards
+        documentation "A collection of partial credits and/or grades a student earned against the course over the session, used when awards of credit are incremental."
+        is optional collection
