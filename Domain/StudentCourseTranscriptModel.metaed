@@ -1,0 +1,5 @@
+Domain StudentCourseTranscriptModel
+    documentation
+"New extensions to replace and expand EdFi.CourseTranscript and store grades and transcripts for courses taken in multiple parts."
+    descriptor CourseSequence
+    domain entity StudentCourseTranscript

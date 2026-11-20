@@ -1,0 +1,2 @@
+Descriptor CourseSequence
+    documentation "The sequence in which the course is taken by the student.  It identifies which part of a multi-part course a record represents"
