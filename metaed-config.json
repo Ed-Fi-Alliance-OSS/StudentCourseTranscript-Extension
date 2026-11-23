@@ -1,0 +1,30 @@
+{
+  "metaEdConfiguration": {
+    "pluginConfigDirectories": [],
+    "projects": [
+      {
+        "description": "Ed-Fi Unifying Data Model",
+        "projectVersion": "6.2.0",
+        "projectName": "Ed-Fi",
+        "projectExtension": "",
+        "namespaceName": "EdFi"
+      },
+      {
+        "description": "Alternative course transcript model",
+        "projectVersion": "1.0.0",
+        "projectName": "StudentCourseTranscript",
+        "projectExtension": "StudentCourseTranscript",
+        "namespaceName": "EdFiX"
+      }
+    ],
+    "deployDirectory": "",
+    "defaultPluginTechVersion": "8.1",
+    "pluginTechVersion": {},
+    "allianceMode": true,
+    "projectPaths": [
+      "./node_modules/@edfi/ed-fi-model-6.2",
+      "./package"
+    ],
+    "artifactDirectory": "./MetaEdOutput"
+  }
+}
