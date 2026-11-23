@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: Apache-2.0
+
 Domain Entity StudentCourseTranscript
     documentation "This entity is record of a student's performance in a course, or in one part of a multi-part course, at the end of a term or school year.it is the proposed transcript model for historical and current-year records alike, and runs parallel to CourseTranscript until implementations migrate"
     domain entity EdFi.StudentAcademicRecord
