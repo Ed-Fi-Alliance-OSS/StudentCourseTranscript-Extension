@@ -28,10 +28,9 @@ npm start 2>&1 | grep '"level":"error"'
 
 - Logs are JSON lines; treat any `{"level":"error"...}` line as a build failure.
 - CLI help: `node node_modules/@edfi/metaed-console/dist/index.js --help`
-- Edits to `.metaed` files automatically trigger `npm start` through a
-  PostToolUse hook (`.claude/hooks/metaed-build.mjs`). A blocked result does not
-  revert the edit: fix forward, and do not re-run the build yourself unless you
-  need fresh output.
+- When you finish a turn, a Stop hook (`.claude/hooks/metaed-build.mjs`)
+  runs the build if `.metaed` files have uncommitted changes not yet built, so you do not need to
+  run it yourself. A block means the build reported errors: fix them.
 
 ## MetaEd authoring conventions
 
