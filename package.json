@@ -1,6 +1,10 @@
 {
-  "metaEdProject": {
-    "projectName": "EdFiX",
-    "projectVersion": "1.0.0"
+  "dependencies": {
+    "@edfi/ed-fi-model-6.2": "^3.0.0-pre.7",
+    "@edfi/metaed-console": "^4.9.0",
+    "cross-env": "^10.1.0"
+  },
+  "scripts": {
+    "start": "npx cross-env NODE_NO_WARNINGS=1 LOG_LEVEL=error node --no-deprecation node_modules/@edfi/metaed-console/dist/index.js -c ./metaed-config.json -a"
   }
 }
