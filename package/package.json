@@ -1,0 +1,12 @@
+{
+  "metaEdProject": {
+    "description": "Alternative course transcript model",
+    "projectVersion": "1.0.0",
+    "projectName": "StudentCourseTranscript",
+    "projectExtension": "StudentCourseTranscript",
+    "namespaceName": "EdFiX"
+  },
+  "scripts": {
+    "start": "pushd .. && npm start && popd"
+  }
+}
